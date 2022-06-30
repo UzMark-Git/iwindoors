@@ -27,7 +27,8 @@
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^5.0.0",
     "hexo-renderer-stylus": "^2.0.1",
-    "hexo-server": "^3.0.0"
+    "hexo-server": "^3.0.0",
+    "hexo-theme-volantis": "^5.5.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
