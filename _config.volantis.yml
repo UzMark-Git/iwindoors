@@ -50,8 +50,8 @@ navbar:
 
 cover:
   # height_scheme: full # full, half
-  title: 'Volantis'
-  subtitle: '中文创作者社区'
+  title: 'iwindoors'
+  subtitle: '收集各类门窗相关知识，工具，及使用教程。'
   background: # https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   features:
     - name: 博客
