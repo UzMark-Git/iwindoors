@@ -46,37 +46,46 @@ navbar:
         - name: 旧版文档 v2
           url: /v2/getting-started/
 
-
-
+############################### Cover ############################### > start
 cover:
-  # height_scheme: full # full, half
+  height_scheme: full # full, half
+  layout_scheme: search # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
+  display:
+    home: true
+    archive: true
+    others: false # can be written in front-matter 'cover: true'
+  background: https://fastly.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+  # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
+  logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: 'iwindoors'
   subtitle: '收集门窗相关知识，工具，及使用教程。'
-  background: # https://bing.ioliu.cn/v1/rand?w=1920&h=1200
+  search: 搜索一下，更快哦~ # search bar placeholder
   features:
-    - name: 博客
-      img: volantis-static/media/twemoji/assets/svg/1f4f0.svg
-      url: /
-    - name: 网盘
-      img: volantis-static/media/twemoji/assets/svg/1f516.svg
-      url: /v5/getting-started/
-      target: _self
-    - name: 示例
-      img: volantis-static/media/twemoji/assets/svg/1f4af.svg
-      url: /examples/
+    - name: 文档
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f5c3.svg # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg
+      url: /v4/getting-started/
     - name: 帮助
-      img: volantis-static/media/twemoji/assets/svg/1f4ac.svg
-      url: /faqs/
-    - name: 鸣谢
-      img: volantis-static/media/twemoji/assets/svg/1f497.svg
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f516.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg
+      url: faqs/
+    - name: 示例
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f396.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg
+      url: /examples/
+    - name: 社区
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f389.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg
       url: /contributors/
-    - name: 归档
-      img: volantis-static/media/twemoji/assets/svg/1f5c3.svg
+    - name: 博客
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f4f0.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
       url: /archives/
     - name: 源码
-      img: volantis-static/media/twemoji/assets/svg/1f9ec.svg
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f9ec.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
       url: https://github.com/volantis-x/hexo-theme-volantis/
-      target: _self
+############################### Cover ############################### > end
 
 article:
   preview:
