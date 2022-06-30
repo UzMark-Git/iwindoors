@@ -51,13 +51,13 @@ navbar:
 cover:
   # height_scheme: full # full, half
   title: 'iwindoors'
-  subtitle: '收集各类门窗相关知识，工具，及使用教程。'
+  subtitle: '收集门窗相关知识，工具，及使用教程。'
   background: # https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   features:
     - name: 博客
       img: volantis-static/media/twemoji/assets/svg/1f4f0.svg
       url: /
-    - name: 文档
+    - name: 网盘
       img: volantis-static/media/twemoji/assets/svg/1f516.svg
       url: /v5/getting-started/
       target: _self
