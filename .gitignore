@@ -1,7 +1,6 @@
-.DS_Store
-node_modules
-db.json
-.deploy_git
+**/.DS_Store
+.favorites.json
+.gitignore
 public
-package-lock.json
-.vscode/
+.obsidian
+node_modules
