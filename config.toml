@@ -36,8 +36,8 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
   url="/archives/"
   weight="4"
   [[menu.main]]
-  name="导航"
-  url="https://edui123.com/"
+  name="搜索"
+  url="/search/"
   weight="5"
   [[menu.main]]
   name="关于"
