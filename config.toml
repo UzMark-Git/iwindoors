@@ -1,8 +1,8 @@
-baseURL  =  "https://immmmm.com"
+baseURL  =  "https://iwindoors.com"
 languageCode = "zh-CN"
 # DefaultContentLanguage = "zh-CN"
-title  =  "木木木木木"
-subtitle = "不问明天，悠然浪费"
+title  =  "大杨の窗"
+subtitle = "阳台封窗哪家强，南昌尚品找大杨~"
 
 theme  =  "hello-friend"
 summaryLength = 140
@@ -60,7 +60,7 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
 
-  EditPath = 'https://github.com/lmm214/immmmm/edit/master/content'
+  EditPath = 'https://github.com/UzMark-Git/iwindoors/edit/master/content'
 
 [markup]
   [markup.goldmark]
