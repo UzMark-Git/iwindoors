@@ -1,8 +1,8 @@
 baseURL  =  "https://iwindoors.com"
 languageCode = "zh-CN"
 # DefaultContentLanguage = "zh-CN"
-title  =  "大杨の窗"
-subtitle = "阳台封窗哪家强，南昌尚品找大杨~"
+title  =  "洪窗-专注南昌封窗，换窗服务"
+subtitle = "在南昌建材圈深耕十余年，专注南昌阳台封窗，换窗，阳台整装服务~"
 
 theme  =  "hello-friend"
 summaryLength = 140
