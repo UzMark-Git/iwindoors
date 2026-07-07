@@ -1,1 +1,467 @@
-111
+media:
+  - name: post_images
+    label: 文章图片
+    input: static/images
+    output: /images
+    categories: [image]
+    rename: false
+  - name: photos
+    label: 相册图片
+    input: static/photos
+    output: /photos
+    categories: [image]
+    rename: false
+  - name: goods_images
+    label: 好物图片
+    input: static/goods
+    output: /goods
+    extensions: [jpg, jpeg, png, gif, webp, avif]
+    rename: false
+
+content:
+  - name: posts
+    label: 文章
+    type: group
+    items:
+      - name: coding
+        label: 折腾
+        type: collection
+        path: content/posts/coding
+        format: yaml-frontmatter
+        filename:
+          template: "{primary}.md"
+          field: create
+        exclude: [_index.md]
+        view:
+          fields: [title, date, tags]
+          primary: title
+          sort: [date, title]
+          search: [title, tags, body]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+            required: true
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm:ssxx
+          - name: tags
+            label: 标签
+            type: string
+            list: true
+          - name: feature
+            label: 封面图 URL
+            type: string
+          - name: body
+            label: 正文
+            type: rich-text
+            options:
+              format: markdown
+              media: post_images
+              switcher: true
+
+      - name: daily
+        label: 日常
+        type: collection
+        path: content/posts/daily
+        format: yaml-frontmatter
+        filename:
+          template: "{primary}.md"
+          field: create
+        exclude: [_index.md]
+        view:
+          fields: [title, date, tags]
+          primary: title
+          sort: [date, title]
+          search: [title, tags, body]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+            required: true
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm:ssxx
+          - name: tags
+            label: 标签
+            type: string
+            list: true
+          - name: feature
+            label: 封面图 URL
+            type: string
+          - name: body
+            label: 正文
+            type: rich-text
+            options:
+              format: markdown
+              media: post_images
+              switcher: true
+
+      - name: chat
+        label: 词穷
+        type: collection
+        path: content/posts/chat
+        format: yaml-frontmatter
+        filename:
+          template: "{year}-{month}-{day}.md"
+          field: create
+        exclude: [_index.md]
+        view:
+          fields: [title, date, tags]
+          primary: title
+          sort: [date, title]
+          search: [title, tags, body]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+            required: true
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm:ssxx
+          - name: tags
+            label: 标签
+            type: string
+            list: true
+          - name: feature
+            label: 封面图 URL
+            type: string
+          - name: body
+            label: 正文
+            type: rich-text
+            options:
+              format: markdown
+              media: post_images
+              switcher: true
+
+      - name: reading
+        label: 育人
+        type: collection
+        path: content/posts/reading
+        format: yaml-frontmatter
+        filename:
+          template: "{primary}.md"
+          field: create
+        exclude: [_index.md]
+        view:
+          fields: [title, date, tags]
+          primary: title
+          sort: [date, title]
+          search: [title, tags, body]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+            required: true
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm:ssxx
+          - name: tags
+            label: 标签
+            type: string
+            list: true
+          - name: feature
+            label: 封面图 URL
+            type: string
+          - name: body
+            label: 正文
+            type: rich-text
+            options:
+              format: markdown
+              media: post_images
+              switcher: true
+
+      - name: post_sections
+        label: 分类页
+        type: group
+        items:
+          - name: posts_index
+            label: 文章入口
+            type: file
+            path: content/posts/_index.md
+            format: yaml-frontmatter
+            fields:
+              - name: title
+                label: 标题
+                type: string
+              - name: type
+                label: 类型
+                type: string
+              - name: body
+                label: 正文
+                type: rich-text
+                options:
+                  format: markdown
+                  media: post_images
+                  switcher: true
+          - name: coding_index
+            label: 折腾分类
+            type: file
+            path: content/posts/coding/_index.md
+            format: yaml-frontmatter
+            fields:
+              - name: title
+                label: 标题
+                type: string
+              - name: slug
+                label: Slug
+                type: string
+              - name: sulg
+                label: Sulg
+                type: string
+              - name: body
+                label: 正文
+                type: rich-text
+                options:
+                  format: markdown
+                  media: post_images
+                  switcher: true
+          - name: daily_index
+            label: 日常分类
+            type: file
+            path: content/posts/daily/_index.md
+            format: yaml-frontmatter
+            fields:
+              - name: title
+                label: 标题
+                type: string
+              - name: slug
+                label: Slug
+                type: string
+              - name: body
+                label: 正文
+                type: rich-text
+                options:
+                  format: markdown
+                  media: post_images
+                  switcher: true
+          - name: chat_index
+            label: 词穷分类
+            type: file
+            path: content/posts/chat/_index.md
+            format: yaml-frontmatter
+            fields:
+              - name: title
+                label: 标题
+                type: string
+              - name: slug
+                label: Slug
+                type: string
+              - name: body
+                label: 正文
+                type: rich-text
+                options:
+                  format: markdown
+                  media: post_images
+                  switcher: true
+          - name: reading_index
+            label: 育人分类
+            type: file
+            path: content/posts/reading/_index.md
+            format: yaml-frontmatter
+            fields:
+              - name: title
+                label: 标题
+                type: string
+              - name: slug
+                label: Slug
+                type: string
+              - name: body
+                label: 正文
+                type: rich-text
+                options:
+                  format: markdown
+                  media: post_images
+                  switcher: true
+
+  - name: pages
+    label: 根页面
+    type: collection
+    path: content
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [title, layout, date]
+      primary: title
+      sort: [title, date, layout]
+      search: [title, layout, body]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+        default: ""
+        options:
+          time: true
+          format: yyyy-MM-dd HH:mm:ss
+      - name: layout
+        label: 布局
+        type: string
+      - name: toc
+        label: 显示目录
+        type: boolean
+      - name: sitemap
+        label: 站点地图
+        type: object
+        fields:
+          - name: priority
+            label: 优先级
+            type: number
+      - name: body
+        label: 正文
+        type: rich-text
+        options:
+          format: markdown
+          media: post_images
+          switcher: true
+
+  - name: structured_data
+    label: 结构化数据
+    type: group
+    items:
+      - name: goods
+        label: 好物清单
+        type: file
+        path: static/goods/goods.json
+        format: json
+        fields:
+          - name: good
+            label: 好物
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title} - {jiage}"
+            fields:
+              - name: image
+                label: 图片
+                type: image
+                options:
+                  media: goods_images
+              - name: jiage
+                label: 价格
+                type: string
+              - name: title
+                label: 名称
+                type: string
+                required: true
+              - name: link
+                label: 链接
+                type: string
+              - name: note
+                label: 备注
+                type: text
+
+      - name: friends
+        label: 友链
+        type: file
+        path: static/friends.json
+        format: json
+        fields:
+          - name: friend
+            label: 友链
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name} - {url}"
+            fields:
+              - name: name
+                label: 名称
+                type: string
+                required: true
+              - name: url
+                label: 链接
+                type: string
+                required: true
+              - name: md5
+                label: 头像 MD5
+                type: string
+              - name: des
+                label: 描述
+                type: text
+
+  - name: system_pages
+    label: 系统列表页
+    type: group
+    items:
+      - name: archives
+        label: 归档页
+        type: file
+        path: content/archives/_index.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: 标题
+            type: string
+          - name: url
+            label: URL
+            type: string
+            list: true
+          - name: body
+            label: 正文
+            type: rich-text
+            options:
+              format: markdown
+              media: post_images
+              switcher: true
+      - name: tags
+        label: 标签页
+        type: file
+        path: content/tags/_index.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: 标题
+            type: string
+          - name: slug
+            label: Slug
+            type: string
+          - name: body
+            label: 正文
+            type: rich-text
+            options:
+              format: markdown
+              media: post_images
+              switcher: true
+
+settings:
+  content:
+    merge: true
