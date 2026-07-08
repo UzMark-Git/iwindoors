@@ -1,8 +1,9 @@
 baseURL  =  "https://iwindoors.com"
 languageCode = "zh-CN"
 # DefaultContentLanguage = "zh-CN"
-title  =  "洪窗-专注南昌封窗，换窗服务"
-subtitle = "在南昌建材圈深耕十余年，专注南昌阳台封窗，换窗，阳台整装服务~"
+title  =  "洪窗-南昌封窗/换窗/阳台整装服务"
+subtitle = "专注南昌及周边住宅封窗、旧窗换新、阳台整装，提供上门测量、方案沟通、安装交付与售后跟进。"
+copyright = "© 2026 洪窗｜南昌封窗、换窗、阳台整装服务｜微信：WindoorsY"
 
 theme  =  "hello-friend"
 summaryLength = 140
@@ -20,29 +21,21 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
 
 [menu]
   [[menu.main]]
-  name="哔哔"
-  url="/bbs/"
+  name="首页"
+  url="/"
   weight="1"
   [[menu.main]]
-  name="友圈"
-  url="/friends/"
+  name="服务介绍"
+  url="/about/"
   weight="2"
   [[menu.main]]
-  name="好物"
-  url="/goods/"
-  weight="3"
-  [[menu.main]]
-  name="归档"
+  name="项目记录"
   url="/archives/"
-  weight="4"
+  weight="3"
   [[menu.main]]
   name="搜索"
   url="/search/"
-  weight="5"
-  [[menu.main]]
-  name="关于"
-  url="/about/"
-  weight="6"
+  weight="4"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
@@ -53,14 +46,12 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
   showMenuItems = 6
   # Enable to show reading time in minutes for posts
   showReadingTime = false
-  logoText = "hello friend"
+  logoText = "洪窗"
 
   MenuMore = "更多"
   DateFormatList = "2006-01-02 15:04:05"
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
-
-  EditPath = 'https://github.com/UzMark-Git/iwindoors/edit/master/content'
 
 [markup]
   [markup.goldmark]
@@ -81,4 +72,3 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
 
 [params.twikoo]
 	enable = true
-

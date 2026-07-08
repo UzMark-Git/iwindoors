@@ -4,147 +4,81 @@
 {{ end }}
 
 {{ define "main" }}
+  <div class="posts home grid-cols-2">
+    <div class="post first col-span-2 home-1">
+      <img loading="eager" decoding="async" src="/images/hero-window-balcony.png" class="post-cover home" alt="南昌阳台封窗与换窗服务展示图" />
+      <h1 class="post-title">洪窗｜南昌封窗、换窗、阳台整装服务</h1>
+      <div class="post-content">
+        <p>专注南昌及周边住宅门窗改造，提供阳台封窗、旧窗换新、阳台整装、局部维修与升级。先看现场，再做方案，把材料、预算、施工范围和售后说清楚。</p>
+        <p><strong>联系方式：</strong>微信 WindoorsY</p>
+        <div><a class="read-more button" href="/about/">查看服务介绍 →</a></div>
+      </div>
+    </div>
+
+    <div class="post col-span-1 home-2">
+      <h2 class="post-title"><a href="/about/">阳台封窗</a></h2>
+      <div class="post-content">
+        <p>结合楼层、朝向、风雨面、栏杆和墙体条件，沟通断桥铝窗、系统窗、推拉窗、平开窗等方案。</p>
+      </div>
+    </div>
+
+    <div class="post col-span-1 home-2">
+      <h2 class="post-title"><a href="/about/">旧窗换新</a></h2>
+      <div class="post-content">
+        <p>针对漏风、渗水、隔音差、五金老化、开合不顺等问题，给出拆旧换新或局部维修建议。</p>
+      </div>
+    </div>
+
+    <div class="post col-span-1 home-2">
+      <h2 class="post-title"><a href="/about/">阳台整装</a></h2>
+      <div class="post-content">
+        <p>围绕封窗、收口、防水衔接、晾晒收纳和日常使用，做更完整的阳台改造规划。</p>
+      </div>
+    </div>
+
+    <div class="post col-span-1 home-2">
+      <h2 class="post-title"><a href="/about/">上门测量</a></h2>
+      <div class="post-content">
+        <p>南昌市区及周边可预约上门，现场确认尺寸、安装条件、材料配置和报价边界。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="home">
+    <h3>服务流程</h3>
+    <div class="post-content">
+      <p>预约沟通 → 上门测量 → 方案报价 → 安装交付 → 售后跟进。</p>
+      <p>咨询时建议先发送小区位置、窗户或阳台照片、期望改造内容，方便更快判断方案。</p>
+    </div>
+  </div>
+
+  <div class="home">
+    <h3>服务范围</h3>
+    <div class="post-content">
+      <p>主要覆盖东湖区、西湖区、青山湖区、青云谱区、红谷滩区、新建区、经开区、高新区、湾里管理局等南昌城区及周边区域。</p>
+    </div>
+  </div>
+
+  <div class="homemore"><a href="/about/">预约咨询前先看这里</a></div>
+
   {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
-
-  {{ $PageContext := . }}
-  {{ if .IsHome }}
-    {{ $PageContext = .Site }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" $contentTypeName) }}
+  {{ if $paginator.Pages }}
+    <div class="home">
+      <h3><a href="/archives/">项目记录与文章</a></h3>
+      <div class="posts home grid-cols-2">
+        {{ range first 4 $paginator.Pages }}
+          <div class="post col-span-1 home-2">
+            <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+            <div class="post-meta">
+              {{ if .Date }}
+                <span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}</span>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
   {{ end }}
-  {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
-
-  <div id="bber-talk"></div>
-  
-  <div class="posts home grid-cols-2">
-
-    {{ range first 1 $paginator.Pages }}
-    <div class="post first col-span-2 home-1">
-      {{ if .Params.feature }}
-        {{ if .Params.UseRelativeCover }}
-          <img loading='lazy' decoding="async" src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover home" />
-        {{ else }}
-          <img loading='lazy' decoding="async" src="{{ .Params.feature | absURL }}" class="post-cover home" />
-        {{ end }}
-      {{ end }}
-      <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-      <div class="post-meta">
-        {{ if .Date }}
-          <span class="post-date">
-            {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
-          </span>
-        {{ end }}
-        {{ if .Params.tags }}
-        <span class="">
-          {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
-          {{ end }}
-        </span>
-        {{ end }}
-      </div>
-      <div class="post-content">
-      {{ if .Truncated }}
-        {{ .Summary }}
-        <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
-      {{ else }}
-        {{ .Content }}
-        {{ .Render "path"}}
-      {{ end }}
-      </div>
-    {{ end }}
-    </div>
-
-    {{ range first 4 (after 1 $paginator.Pages) }}
-    <div class="post col-span-1 home-2">
-      {{ if .Params.feature }}
-        {{ if .Params.UseRelativeCover }}
-          <img loading='lazy' decoding="async" src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
-        {{ else }}
-          <img loading='lazy' decoding="async" src="{{ .Params.feature | absURL }}" class="post-cover" />
-        {{ end }}
-      {{ end }}
-      <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
-      <div class="post-meta">
-        {{ if .Date }}
-          <span class="post-date">
-            {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
-          </span>
-        {{ end }}
-        {{ if .Params.tags }}
-        <span class="">
-          {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
-          {{ end }}
-        </span>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-  </div>
-
-  <div class="homemore"><a href="/archives/">查看更多</a></div>
-
-  <div class="douban friends">
-    <h3><a href="/friends/">朋友连接 </a></h3>
-    <div id="friArticle" style="min-height:160px;"></div>
-  </div>
-
-  <div class="home">
-    <h3><a href="/album/">近期光影</a></h3>
-    <div id="album" style="min-height:160px;"></div>
-  </div>
-  
-  <div class="home">
-    {{ $goods := getJSON "static/goods/goods.json" }}
-    <h3><a href="/goods/">近期好物</a></h3>
-    <div id="goods">
-    {{ range first 5 $goods.good}}
-    <div class="goods-bankuai img-hide">
-      <div class="goods-duiqi"><img loading="lazy" decoding="async" src="{{ .image }}"></div>
-      <div class="goods-jiage">{{ .jiage }}</div>
-      <div class="goods-title"><a href="{{ .link }}">{{ .title }}</a></div>
-      <div class="goods-note">{{ .note }}</div>
-    </div>
-    {{ end }}
-    </div>
-  </div>
-
-    {{$movieitems := getCSV "," "data/douban/movie.csv" }}
-    {{$movienumb := 6}}
-    <div class="douban sc-ksluID gFnzgG">
-      <h3><a href="/movies/">近期观影</a></h3>
-        <div class="items sc-dIsUp fIuTG">
-            {{range $idx,$item := first $movienumb $movieitems}}
-            {{if ne $idx 0}}
-                {{ $rating := float (index $item 6)}}
-                <div class="dfdORB">
-                    <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ index $item 3 }}" referrer-policy="no-referrer" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220"></div></div>
-                    <div class="sc-fujyAs eysHZq">
-                        <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
-                    </div>
-                    <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="{{ index $item 5 }}" target="_blank">{{ index $item 1 }}</a></div>
-                </div>
-            {{end}}
-            {{end}}
-        </div>
-    </div>
-
-    {{$bookitems := getCSV "," "data/douban/book.csv" }}
-    {{$booknumb := 6}}
-    <div class="douban sc-ksluID gFnzgG">
-      <h3><a href="/books/">近期阅读</a></h3>
-        <div class="items sc-dIsUp fIuTG">
-            {{range $idx,$item := first $booknumb $bookitems}}
-            {{if ne $idx 0}}
-                {{ $rating := float (index $item 6)}}
-                <div class="dfdORB">
-                    <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ index $item 3 }}" referrer-policy="no-referrer" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220"></div></div>
-                    <div class="sc-fujyAs eysHZq">
-                        <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
-                    </div>
-                    <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="{{ index $item 5 }}" target="_blank">{{ index $item 1 }}</a></div>
-                </div>
-            {{end}}
-            {{end}}
-        </div>
-    </div>
 {{ end }}
